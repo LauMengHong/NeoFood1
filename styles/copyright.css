@@ -1,0 +1,29 @@
+.copyright-footer {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    text-align: center;
+    margin-top: 40px;
+    border-top: 1px solid rgba(0, 245, 255, 0.3);
+}
+
+.copyright-text {
+    color: var(--text-secondary);
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.copyright-contact {
+    color: var(--neon-blue);
+    font-size: 13px;
+}
+
+.social-link {
+    color: var(--neon-purple);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    color: var(--neon-blue);
+    text-decoration: underline;
+}

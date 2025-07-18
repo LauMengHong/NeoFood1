@@ -1,0 +1,309 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --neon-blue: #00f5ff;
+    --neon-purple: #8a2be2;
+    --neon-pink: #ff1493;
+    --dark-bg: #0a0a0a;
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --text-light: #ffffff;
+    --text-glow: 0 0 10px var(--neon-blue);
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: var(--dark-bg);
+    color: var(--text-light);
+    overflow-x: hidden;
+    cursor: none;
+}
+
+/* Custom Cursor */
+.cursor-glow {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle, var(--neon-blue), transparent);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.1s ease;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.neon-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(90deg, transparent 98%, var(--neon-blue) 100%),
+        linear-gradient(180deg, transparent 98%, var(--neon-blue) 100%);
+    background-size: 50px 50px;
+    opacity: 0.3;
+    animation: gridPulse 4s ease-in-out infinite;
+}
+
+@keyframes gridPulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.6; }
+}
+
+.hero-content {
+    text-align: center;
+    z-index: 2;
+}
+
+.glitch-text {
+    font-size: 4rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    position: relative;
+    color: var(--text-light);
+    text-shadow: var(--text-glow);
+    animation: glitch 2s infinite;
+}
+
+@keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+    100% { transform: translate(0); }
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    margin: 1rem 0 2rem;
+    opacity: 0.8;
+}
+
+.cta-button {
+    position: relative;
+    padding: 15px 40px;
+    background: transparent;
+    border: 2px solid var(--neon-blue);
+    color: var(--text-light);
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.cta-button:hover {
+    background: var(--neon-blue);
+    color: var(--dark-bg);
+    box-shadow: 0 0 30px var(--neon-blue);
+}
+
+.button-glow {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transition: left 0.5s;
+}
+
+.cta-button:hover .button-glow {
+    left: 100%;
+}
+
+/* Floating Elements */
+.floating-elements {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.float-item {
+    position: absolute;
+    font-size: 2rem;
+    animation: float 6s ease-in-out infinite;
+}
+
+.float-item:nth-child(1) {
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.float-item:nth-child(2) {
+    top: 60%;
+    right: 15%;
+    animation-delay: 2s;
+}
+
+.float-item:nth-child(3) {
+    bottom: 30%;
+    left: 20%;
+    animation-delay: 4s;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(180deg); }
+}
+
+/* Floating Navigation */
+.floating-nav {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 50px;
+    padding: 10px 30px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    z-index: 1000;
+}
+
+.nav-brand {
+    font-weight: bold;
+    color: var(--neon-blue);
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-link {
+    color: var(--text-light);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--neon-blue);
+    text-shadow: var(--text-glow);
+}
+
+/* Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(5px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+.glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 20px;
+}
+
+.modal-content {
+    padding: 40px;
+    max-width: 400px;
+    width: 90%;
+    position: relative;
+    animation: modalSlide 0.3s ease;
+}
+
+@keyframes modalSlide {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: var(--text-light);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.auth-form {
+    margin-top: 20px;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 15px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 10px;
+    color: var(--text-light);
+    font-size: 1rem;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: var(--neon-blue);
+    box-shadow: 0 0 10px var(--neon-blue);
+}
+
+.auth-btn {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+    border: none;
+    border-radius: 10px;
+    color: var(--text-light);
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.auth-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,245,255,0.4);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .glitch-text {
+        font-size: 2.5rem;
+    }
+    
+    .floating-nav {
+        padding: 8px 20px;
+        gap: 15px;
+    }
+    
+    .nav-links {
+        gap: 15px;
+    }
+}

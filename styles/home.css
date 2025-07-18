@@ -1,0 +1,298 @@
+/* Search Section */
+.search-section {
+    padding: 120px 20px 60px;
+    text-align: center;
+}
+
+.search-container {
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.ai-search-bar {
+    display: flex;
+    background: var(--glass-bg);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(0, 245, 255, 0.3);
+    border-radius: 50px;
+    padding: 5px;
+    transition: all 0.3s ease;
+}
+
+.ai-search-bar:focus-within {
+    border-color: var(--neon-blue);
+    box-shadow: 0 0 30px rgba(0, 245, 255, 0.3);
+}
+
+.ai-search-bar input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    padding: 15px 25px;
+    color: var(--text-light);
+    font-size: 1.1rem;
+    outline: none;
+}
+
+.ai-search-bar input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.search-btn {
+    background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.search-btn:hover {
+    transform: scale(1.1);
+}
+
+.search-suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--glass-bg);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    margin-top: 10px;
+    max-height: 200px;
+    overflow-y: auto;
+    display: none;
+}
+
+.suggestion-item {
+    padding: 15px 25px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.suggestion-item:hover {
+    background: rgba(0, 245, 255, 0.1);
+}
+
+/* Categories Section */
+.categories-section {
+    padding: 60px 20px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.category-card {
+    height: 200px;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.category-card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--glass-bg);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.card-back {
+    transform: rotateY(180deg);
+    background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
+}
+
+.category-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    animation: iconFloat 3s ease-in-out infinite;
+}
+
+@keyframes iconFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+.category-card h3 {
+    font-size: 1.3rem;
+    color: var(--text-light);
+}
+
+.card-back p {
+    margin-bottom: 20px;
+    opacity: 0.9;
+}
+
+.explore-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: var(--text-light);
+    padding: 10px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.explore-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+/* Restaurants Section */
+.restaurants-section {
+    padding: 60px 20px;
+    background: linear-gradient(180deg, transparent, rgba(0, 245, 255, 0.05));
+}
+
+.restaurants-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.restaurant-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.restaurant-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 245, 255, 0.2);
+}
+
+.restaurant-image {
+    height: 200px;
+    background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.restaurant-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.restaurant-card:hover .restaurant-image::before {
+    left: 100%;
+}
+
+.restaurant-info {
+    padding: 20px;
+}
+
+.restaurant-name {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: var(--neon-blue);
+}
+
+.restaurant-cuisine {
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 15px;
+}
+
+.restaurant-rating {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.stars {
+    color: #ffd700;
+}
+
+.restaurant-delivery {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Cart Count Badge */
+.cart-count {
+    background: var(--neon-pink);
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 0.8rem;
+    margin-left: 5px;
+}
+
+/* Active nav link */
+.nav-link.active {
+    color: var(--neon-blue);
+    text-shadow: var(--text-glow);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .categories-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+    
+    .restaurants-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+}

@@ -1,0 +1,471 @@
+/* Vouchers Page Styles */
+.vouchers-section {
+    padding: 120px 20px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-subtitle {
+    color: var(--text-secondary);
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+/* Glitch Text Effect */
+.glitch-text {
+    position: relative;
+    color: var(--text-light);
+    font-size: 42px;
+    letter-spacing: 2px;
+    margin: 0;
+    animation: glitch 2s infinite;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.glitch-text::before {
+    left: 2px;
+    text-shadow: -2px 0 var(--neon-blue);
+    clip: rect(24px, 550px, 90px, 0);
+    animation: glitch-anim 3s infinite linear alternate-reverse;
+}
+
+.glitch-text::after {
+    left: -2px;
+    text-shadow: -2px 0 var(--neon-purple);
+    clip: rect(85px, 550px, 140px, 0);
+    animation: glitch-anim2 2.5s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+    0% {
+        clip: rect(42px, 9999px, 44px, 0);
+    }
+    20% {
+        clip: rect(12px, 9999px, 59px, 0);
+    }
+    40% {
+        clip: rect(96px, 9999px, 61px, 0);
+    }
+    60% {
+        clip: rect(24px, 9999px, 25px, 0);
+    }
+    80% {
+        clip: rect(58px, 9999px, 73px, 0);
+    }
+    100% {
+        clip: rect(86px, 9999px, 73px, 0);
+    }
+}
+
+@keyframes glitch-anim2 {
+    0% {
+        clip: rect(65px, 9999px, 119px, 0);
+    }
+    20% {
+        clip: rect(82px, 9999px, 73px, 0);
+    }
+    40% {
+        clip: rect(128px, 9999px, 147px, 0);
+    }
+    60% {
+        clip: rect(37px, 9999px, 53px, 0);
+    }
+    80% {
+        clip: rect(24px, 9999px, 34px, 0);
+    }
+    100% {
+        clip: rect(86px, 9999px, 73px, 0);
+    }
+}
+
+/* Tabs */
+.voucher-tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    gap: 10px;
+}
+
+.tab {
+    padding: 12px 25px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+}
+
+.tab::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: all 0.5s ease;
+}
+
+.tab:hover::before {
+    left: 100%;
+}
+
+.tab.active {
+    background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+    color: white;
+    box-shadow: 0 0 15px rgba(0, 245, 255, 0.5);
+}
+
+/* Tab Content */
+.tab-panel {
+    display: none;
+}
+
+.tab-panel.active {
+    display: block;
+}
+
+/* Vouchers Grid */
+.vouchers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.voucher-card {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(0, 245, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.voucher-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
+}
+
+.voucher-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.voucher-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.voucher-type {
+    font-weight: bold;
+    color: var(--neon-blue);
+    font-size: 18px;
+}
+
+.voucher-value {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--text-light);
+}
+
+.voucher-description {
+    margin-bottom: 15px;
+    color: var(--text-secondary);
+}
+
+.voucher-expiry {
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.voucher-actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.use-voucher-btn {
+    background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+    border: none;
+    border-radius: 20px;
+    padding: 8px 15px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.use-voucher-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0, 245, 255, 0.5);
+}
+
+.voucher-code {
+    font-family: monospace;
+    letter-spacing: 1px;
+    color: var(--neon-blue);
+}
+
+/* Redeem Section */
+.redeem-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.quantum-scanner {
+    height: 150px;
+    margin: 20px 0;
+    position: relative;
+    border: 2px solid var(--neon-blue);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.scanner-beam {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--neon-blue);
+    box-shadow: 0 0 10px var(--neon-blue);
+    animation: scan 2s infinite;
+}
+
+@keyframes scan {
+    0% {
+        top: 0;
+    }
+    50% {
+        top: 100%;
+    }
+    100% {
+        top: 0;
+    }
+}
+
+.scanner-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        linear-gradient(rgba(0, 245, 255, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 245, 255, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+.code-input-container {
+    position: relative;
+    margin: 20px 0;
+}
+
+.code-input {
+    width: 100%;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--neon-blue);
+    border-radius: 10px;
+    color: var(--text-light);
+    font-size: 18px;
+    letter-spacing: 5px;
+    text-align: center;
+    font-family: monospace;
+}
+
+.code-segments {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-around;
+    pointer-events: none;
+}
+
+.code-segments span {
+    display: block;
+    width: 1px;
+    height: 20px;
+    background: rgba(0, 245, 255, 0.3);
+    transform: translateY(-50%);
+}
+
+.redeem-btn {
+    background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+    border: none;
+    border-radius: 30px;
+    padding: 12px 25px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 20px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.button-glow {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.redeem-btn:hover .button-glow {
+    opacity: 1;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.8);
+        opacity: 0.3;
+    }
+    50% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(0.8);
+        opacity: 0.3;
+    }
+}
+
+.scan-text {
+    color: var(--text-secondary);
+    font-style: italic;
+    margin-top: 10px;
+}
+
+.voucher-list-link {
+    display: inline-block;
+    margin-top: 15px;
+    color: var(--neon-blue);
+    text-decoration: none;
+    border-bottom: 1px dashed var(--neon-blue);
+    transition: all 0.3s ease;
+}
+
+.voucher-list-link:hover {
+    color: var(--neon-purple);
+    border-color: var(--neon-purple);
+}
+
+/* Modal */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    width: 90%;
+    max-width: 400px;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.success-animation {
+    margin: 20px auto;
+}
+
+.checkmark-circle {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.checkmark-circle .checkmark {
+    border-radius: 5px;
+}
+
+.checkmark-circle .checkmark:after {
+    content: "";
+    display: block;
+    width: 30px;
+    height: 60px;
+    border: solid var(--neon-blue);
+    border-width: 0 4px 4px 0;
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    animation: checkmark 0.8s ease-in-out;
+}
+
+@keyframes checkmark {
+    0% {
+        height: 0;
+        width: 0;
+        opacity: 0;
+    }
+    40% {
+        height: 0;
+        width: 30px;
+        opacity: 1;
+    }
+    100% {
+        height: 60px;
+        width: 30px;
+        opacity: 1;
+    }
+}
+
+.expiry {
+    margin-top: 20px;
+    color: var(--text-secondary);
+}
+
+.close-modal-btn {
+    background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+    border: none;
+    border-radius: 30px;
+    padding: 12px 25px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+}

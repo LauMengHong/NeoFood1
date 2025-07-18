@@ -1,0 +1,166 @@
+/* User Preferences Styles */
+
+/* Theme Styles */
+body.dark-theme {
+    --bg-color: #121212;
+    --text-light: #ffffff;
+    --text-secondary: #aaaaaa;
+    --glass-bg: rgba(0, 0, 0, 0.7);
+}
+
+body.light-theme {
+    --bg-color: #f5f5f5;
+    --text-light: #121212;
+    --text-secondary: #555555;
+    --glass-bg: rgba(255, 255, 255, 0.7);
+}
+
+body.neon-theme {
+    --bg-color: #121212;
+    --text-light: #ffffff;
+    --text-secondary: #aaaaaa;
+    --glass-bg: rgba(0, 0, 0, 0.7);
+    --neon-blue: #ff00ff;
+    --neon-purple: #00ffff;
+}
+
+/* Address Card Styles */
+.address-card {
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.address-card.default {
+    border: 1px solid var(--neon-blue);
+}
+
+.address-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.address-name {
+    font-weight: bold;
+    color: var(--neon-blue);
+}
+
+.default-badge {
+    background: rgba(0, 245, 255, 0.2);
+    color: var(--neon-blue);
+    padding: 3px 8px;
+    border-radius: 10px;
+    font-size: 12px;
+}
+
+.address-content {
+    margin-bottom: 15px;
+}
+
+.address-text {
+    margin-bottom: 5px;
+}
+
+.address-instructions {
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.address-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.set-default-btn, .edit-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    padding: 5px 10px;
+    color: white;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.set-default-btn:hover, .edit-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.delete-btn {
+    background: rgba(255, 0, 128, 0.1);
+    border: 1px solid rgba(255, 0, 128, 0.3);
+    border-radius: 15px;
+    padding: 5px 10px;
+    color: white;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    background: rgba(255, 0, 128, 0.2);
+}
+
+.add-address-btn {
+    background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+    border: none;
+    border-radius: 20px;
+    padding: 8px 15px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    width: 90%;
+    max-width: 500px;
+    padding: 30px;
+    border-radius: 15px;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    color: var(--neon-blue);
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.cancel-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    padding: 8px 15px;
+    color: white;
+    cursor: pointer;
+}
+
+.save-btn {
+    background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+    border: none;
+    border-radius: 20px;
+    padding: 8px 15px;
+    color: white;
+    cursor: pointer;
+}

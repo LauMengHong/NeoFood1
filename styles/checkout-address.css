@@ -1,0 +1,39 @@
+/* Checkout Address Styles */
+.saved-addresses {
+    margin-bottom: 15px;
+}
+
+.address-selector {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.address-option {
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.address-option:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.address-option.active {
+    border-color: var(--neon-blue);
+    background: rgba(0, 245, 255, 0.05);
+}
+
+.address-option-name {
+    font-weight: bold;
+    color: var(--neon-blue);
+    margin-bottom: 5px;
+}
+
+.address-option-text {
+    font-size: 14px;
+    color: var(--text-secondary);
+}

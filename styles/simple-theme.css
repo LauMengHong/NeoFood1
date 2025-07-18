@@ -1,0 +1,55 @@
+/* Simple Theme Styles */
+
+/* Theme Classes */
+body.dark-theme {
+    --bg-color: #121212;
+    --text-light: #ffffff;
+    --text-secondary: #aaaaaa;
+    --glass-bg: rgba(0, 0, 0, 0.7);
+}
+
+body.light-theme {
+    --bg-color: #f5f5f5;
+    --text-light: #121212;
+    --text-secondary: #555555;
+    --glass-bg: rgba(255, 255, 255, 0.7);
+}
+
+body.neon-theme {
+    --bg-color: #121212;
+    --text-light: #ffffff;
+    --text-secondary: #aaaaaa;
+    --glass-bg: rgba(0, 0, 0, 0.7);
+    --neon-blue: #ff00ff;
+    --neon-purple: #00ffff;
+}
+
+/* Theme Option Styles */
+.theme-option {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.theme-option.active .theme-preview {
+    border: 2px solid var(--neon-blue);
+    box-shadow: 0 0 10px var(--neon-blue);
+}
+
+/* Save Address Button */
+.save-address-btn {
+    background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+    border: none;
+    border-radius: 20px;
+    padding: 10px 15px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 15px;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.save-address-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0, 245, 255, 0.5);
+}
