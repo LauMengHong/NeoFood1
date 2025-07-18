@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeoFood - Order History</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/theme.css">
+    <link rel="stylesheet" href="styles/orders.css">
+</head>
+<body>
+    <div class="cursor-glow"></div>
+    
+    <nav class="floating-nav">
+        <div class="nav-brand">NeoFood</div>
+        <div class="nav-links">
+            <a href="home.html" class="nav-link">Home</a>
+            <a href="profile.html" class="nav-link">Profile</a>
+        </div>
+    </nav>
+
+    <section class="orders-section">
+        <div class="orders-container">
+            <h1 class="orders-title">Order History</h1>
+            
+            <div class="filters">
+                <div class="filter-tabs">
+                    <div class="filter-tab active" data-filter="all">All Orders</div>
+                    <div class="filter-tab" data-filter="delivered">Delivered</div>
+                    <div class="filter-tab" data-filter="preparing">In Progress</div>
+                </div>
+                <div class="search-box">
+                    <input type="text" placeholder="Search orders..." id="orderSearch">
+                    <button class="search-btn">🔍</button>
+                </div>
+            </div>
+            
+            <div class="orders-list" id="ordersList">
+                <!-- Orders loaded dynamically -->
+            </div>
+            
+            <div class="empty-orders" id="emptyOrders" style="display: none;">
+                <div class="empty-icon">📋</div>
+                <h2>No orders found</h2>
+                <p>Start ordering to see your history here!</p>
+                <button class="browse-btn" onclick="window.location.href='home.html'">
+                    Browse Restaurants
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <script src="scripts/main.js"></script>
+    <script src="scripts/theme-system.js"></script>
+    <script src="scripts/fix-order-history.js"></script>
+    <script src="scripts/delete-order.js"></script>
+    <script src="scripts/orders.js"></script>
+</body>
+</html>

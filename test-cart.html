@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Cart - NeoFood</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/menu.css">
+</head>
+<body>
+    <div class="cursor-glow"></div>
+    
+    <nav class="floating-nav">
+        <div class="nav-brand">NeoFood</div>
+        <div class="nav-links">
+            <a href="home.html" class="nav-link">← Back</a>
+            <a href="cart.html" class="nav-link">Cart <span class="cart-count">0</span></a>
+        </div>
+    </nav>
+
+    <section style="padding: 120px 20px;">
+        <h1 style="color: white; text-align: center; margin-bottom: 40px;">Test Add to Cart</h1>
+        
+        <div style="max-width: 400px; margin: 0 auto; background: var(--glass-bg); padding: 30px; border-radius: 20px;">
+            <h3 style="color: var(--neon-blue); margin-bottom: 20px;">Test Item</h3>
+            <p style="color: rgba(255,255,255,0.8); margin-bottom: 20px;">This is a test item to verify cart functionality</p>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="color: var(--neon-blue); font-size: 1.2rem; font-weight: bold;">$9.99</span>
+                <button onclick="testAddToCart()" style="background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple)); border: none; border-radius: 25px; padding: 10px 20px; color: white; cursor: pointer;">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+        
+        <div id="cartStatus" style="text-align: center; margin-top: 30px; color: white;"></div>
+    </section>
+
+    <script>
+        function testAddToCart() {
+            console.log('testAddToCart called');
+            
+            let cart = JSON.parse(localStorage.getItem('neoFoodCart') || '[]');
+            console.log('Current cart:', cart);
+            
+            const testItem = {
+                id: 999,
+                name: "Test Item",
+                price: 9.99,
+                quantity: 1,
+                restaurantName: "Test Restaurant"
+            };
+            
+            cart.push(testItem);
+            localStorage.setItem('neoFoodCart', JSON.stringify(cart));
+            
+            console.log('Updated cart:', cart);
+            
+            // Update cart count
+            const cartCount = document.querySelector('.cart-count');
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = totalItems;
+            cartCount.style.display = 'inline';
+            
+            // Show status
+            document.getElementById('cartStatus').innerHTML = `
+                <p style="color: var(--neon-blue);">✓ Item added to cart!</p>
+                <p>Total items in cart: ${totalItems}</p>
+                <p><a href="cart.html" style="color: var(--neon-blue);">View Cart</a></p>
+            `;
+            
+            alert('Item added to cart! Check the cart count in navigation.');
+        }
+        
+        // Update cart count on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const cart = JSON.parse(localStorage.getItem('neoFoodCart') || '[]');
+            const cartCount = document.querySelector('.cart-count');
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = totalItems;
+            
+            if (totalItems > 0) {
+                cartCount.style.display = 'inline';
+            }
+        });
+    </script>
+</body>
+</html>

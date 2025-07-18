@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeoFood - Discover</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/theme.css">
+    <link rel="stylesheet" href="styles/home.css">
+    <link rel="stylesheet" href="styles/copyright.css">
+</head>
+<body>
+    <div class="cursor-glow"></div>
+    
+    <!-- Navigation -->
+    <nav class="floating-nav">
+        <div class="nav-brand">NeoFood</div>
+        <div class="nav-links">
+            <a href="home.html" class="nav-link active">Discover</a>
+            <a href="cart.html" class="nav-link">Cart <span class="cart-count">0</span></a>
+            <a href="vouchers.html" class="nav-link">Vouchers</a>
+            <a href="profile.html" class="nav-link">Profile</a>
+        </div>
+    </nav>
+
+    <!-- AI Search Bar -->
+    <section class="search-section">
+        <div class="search-container">
+            <form class="ai-search-bar" id="searchForm">
+                <input type="text" placeholder="I feel like eating..." id="aiSearch">
+                <button type="submit" class="search-btn">🔍</button>
+            </form>
+            <div class="search-suggestions" id="suggestions"></div>
+        </div>
+    </section>
+
+    <!-- Food Categories -->
+    <section class="categories-section">
+        <h2 class="section-title">Explore Categories</h2>
+        <div class="categories-grid">
+            <div class="category-card" data-category="asian">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="category-icon">🍜</div>
+                        <h3>Asian Cuisine</h3>
+                    </div>
+                    <div class="card-back">
+                        <p>Authentic flavors from across Asia</p>
+                        <button class="explore-btn">Explore</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="category-card" data-category="fastfood">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="category-icon">🍕</div>
+                        <h3>Fast Food</h3>
+                    </div>
+                    <div class="card-back">
+                        <p>Quick bites for busy days</p>
+                        <button class="explore-btn">Explore</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="category-card" data-category="healthy">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="category-icon">🥗</div>
+                        <h3>Healthy & Organic</h3>
+                    </div>
+                    <div class="card-back">
+                        <p>Fresh, nutritious meals</p>
+                        <button class="explore-btn">Explore</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="category-card" data-category="drinks">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="category-icon">🧋</div>
+                        <h3>Drinks & Beverages</h3>
+                    </div>
+                    <div class="card-back">
+                        <p>Refreshing drinks & smoothies</p>
+                        <button class="explore-btn">Explore</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="category-card" data-category="desserts">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="category-icon">🍰</div>
+                        <h3>Desserts</h3>
+                    </div>
+                    <div class="card-back">
+                        <p>Sweet treats & delights</p>
+                        <button class="explore-btn">Explore</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="category-card" data-category="hotpicks">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="category-icon">🔥</div>
+                        <h3>Hot Picks</h3>
+                    </div>
+                    <div class="card-back">
+                        <p>Trending & popular items</p>
+                        <button class="explore-btn">Explore</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Restaurants -->
+    <section class="restaurants-section">
+        <h2 class="section-title">Featured Restaurants</h2>
+        <div class="restaurants-grid" id="restaurantsGrid">
+            <!-- Restaurants will be loaded dynamically -->
+        </div>
+    </section>
+
+    <script src="scripts/main.js"></script>
+    <script src="scripts/theme-system.js"></script>
+    <script src="scripts/home.js"></script>
+    <script src="scripts/direct-search.js"></script>
+    <script src="scripts/random-restaurant.js"></script>
+    <script src="scripts/copyright.js"></script>
+</body>
+</html>

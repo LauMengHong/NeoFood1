@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeoFood - Profile</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/theme.css">
+    <link rel="stylesheet" href="styles/profile.css">
+    <link rel="stylesheet" href="styles/address.css">
+    <link rel="stylesheet" href="styles/copyright.css">
+</head>
+<body>
+    <div class="cursor-glow"></div>
+    
+    <nav class="floating-nav">
+        <div class="nav-brand">NeoFood</div>
+        <div class="nav-links">
+            <a href="home.html" class="nav-link">Home</a>
+            <a href="orders.html" class="nav-link">Orders</a>
+            <a href="#" class="nav-link" onclick="logout()">Logout</a>
+        </div>
+    </nav>
+
+    <section class="profile-section">
+        <div class="profile-container">
+            <div class="profile-header glass">
+                <div class="profile-avatar">
+                    <div class="avatar-icon">👤</div>
+                </div>
+                <div class="profile-info">
+                    <h1 id="userName">Neo User</h1>
+                    <p id="userEmail">user@neofood.com</p>
+                    <div class="user-stats">
+                        <div class="stat">
+                            <span class="stat-number" id="totalOrders">0</span>
+                            <span class="stat-label">Orders</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number" id="totalSpent">$0</span>
+                            <span class="stat-label">Spent</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number" id="favoriteRestaurants">0</span>
+                            <span class="stat-label">Favorites</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="profile-content">
+                <div class="profile-tabs">
+                    <div class="tab active" data-tab="orders">Recent Orders</div>
+                    <div class="tab" data-tab="favorites">Favorites</div>
+                    <div class="tab" data-tab="settings">Settings</div>
+                </div>
+                
+                <div class="tab-content">
+                    <div class="tab-panel active" id="orders-panel">
+                        <div class="recent-orders" id="recentOrders">
+                            <!-- Orders loaded dynamically -->
+                        </div>
+                    </div>
+                    
+                    <div class="tab-panel" id="favorites-panel">
+                        <div class="favorites-grid" id="favoritesGrid">
+                            <!-- Favorites loaded dynamically -->
+                        </div>
+                    </div>
+                    
+                    <div class="tab-panel" id="settings-panel">
+                        <div class="settings-section glass">
+                            <h3>🎨 Theme</h3>
+                            <div class="theme-selector">
+                                <div class="theme-option active" data-theme="dark">
+                                    <div class="theme-preview dark-theme"></div>
+                                    <span>Dark</span>
+                                </div>
+                                <div class="theme-option" data-theme="light">
+                                    <div class="theme-preview light-theme"></div>
+                                    <span>Light</span>
+                                </div>
+                                <div class="theme-option" data-theme="neon">
+                                    <div class="theme-preview neon-theme"></div>
+                                    <span>Neon</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="settings-section glass">
+                            <h3>🔔 Notifications</h3>
+                            <div class="setting-item">
+                                <span>Order Updates</span>
+                                <label class="toggle">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <span>Promotions</span>
+                                <label class="toggle">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="settings-section glass">
+                            <h3>📍 Delivery Addresses</h3>
+                            <div id="addressContainer">
+                                <div class="address-card glass default">
+                                    <div class="address-header">
+                                        <div class="address-name">Home</div>
+                                        <div class="default-badge">Default</div>
+                                    </div>
+                                    <div class="address-content">
+                                        <div class="address-text">123 Cyber Street, Neo City</div>
+                                        <div class="address-instructions">Ring doorbell twice</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button id="addAddressBtn" class="add-address-btn">
+                                + Add New Address
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="scripts/main.js"></script>
+    <script src="scripts/theme-system.js"></script>
+    <script src="scripts/fix-order-history.js"></script>
+    <script src="scripts/profile.js"></script>
+</body>
+</html>

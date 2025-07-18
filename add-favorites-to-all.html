@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Favorites Button - NeoFood</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <style>
+        body {
+            padding: 120px 20px 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .container {
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 30px;
+        }
+        
+        h1 {
+            color: var(--neon-blue);
+            margin-top: 0;
+        }
+        
+        .action-button {
+            background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+            border: none;
+            border-radius: 30px;
+            padding: 12px 25px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .action-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(0, 245, 255, 0.5);
+        }
+        
+        #results {
+            margin-top: 20px;
+        }
+        
+        #resultsList {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        #resultsList li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .success {
+            color: #00ff00;
+        }
+        
+        .success-message {
+            font-size: 18px;
+            font-weight: bold;
+            color: #00ff00;
+            margin-top: 20px;
+        }
+        
+        .note {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="cursor-glow"></div>
+    
+    <nav class="floating-nav">
+        <div class="nav-brand">NeoFood</div>
+        <div class="nav-links">
+            <a href="home.html" class="nav-link">← Back to Home</a>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <h1>Add Favorites Button to All Restaurants</h1>
+        <p>Currently, only Restaurant 1 and Restaurant 2 have the "Add to Favorites" button. Click the button below to add the favorites button to all restaurant pages.</p>
+        
+        <button id="addToAllBtn" class="action-button">Add Favorites Button to All Restaurants</button>
+        
+        <div id="results">
+            <ul id="resultsList"></ul>
+        </div>
+        
+        <div class="note">
+            <p><strong>Note:</strong> After clicking the button, all restaurant pages will have the "Add to Favorites" button in the top right corner. You can then visit any restaurant page and add it to your favorites.</p>
+        </div>
+    </div>
+    
+    <script src="scripts/main.js"></script>
+    <script src="scripts/add-favorites-to-all.js"></script>
+    <script>
+        document.getElementById('addToAllBtn').addEventListener('click', function() {
+            this.disabled = true;
+            this.textContent = 'Processing...';
+            
+            // Process all files
+            processAllFiles();
+            
+            // Update button
+            this.textContent = 'Completed!';
+            this.style.background = 'linear-gradient(45deg, #00ff00, #00aa00)';
+        });
+    </script>
+</body>
+</html>

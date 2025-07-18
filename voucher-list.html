@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeoFood - Voucher Codes</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/theme.css">
+    <style>
+        .voucher-list-section {
+            padding: 120px 20px 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .voucher-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .voucher-table th, .voucher-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .voucher-table th {
+            background: rgba(0, 245, 255, 0.1);
+            color: var(--neon-blue);
+            font-weight: 500;
+        }
+        
+        .voucher-table tr:hover {
+            background: rgba(0, 245, 255, 0.05);
+        }
+        
+        .voucher-code {
+            font-family: monospace;
+            color: var(--neon-blue);
+            font-weight: bold;
+        }
+        
+        .back-btn {
+            display: inline-block;
+            margin-top: 30px;
+            background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+            border: none;
+            border-radius: 20px;
+            padding: 10px 20px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="cursor-glow"></div>
+    
+    <nav class="floating-nav">
+        <div class="nav-brand">NeoFood</div>
+        <div class="nav-links">
+            <a href="home.html" class="nav-link">Home</a>
+            <a href="vouchers.html" class="nav-link">Vouchers</a>
+            <a href="profile.html" class="nav-link">Profile</a>
+        </div>
+    </nav>
+
+    <section class="voucher-list-section">
+        <div class="section-header">
+            <h1>Available Voucher Codes</h1>
+            <p>Use these codes in the Quantum Voucher system</p>
+        </div>
+        
+        <table class="voucher-table">
+            <thead>
+                <tr>
+                    <th>Code</th>
+                    <th>Value</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="voucher-code">NEOFOOD20</td>
+                    <td>20% OFF</td>
+                    <td>Get 20% off your next order</td>
+                </tr>
+                <tr>
+                    <td class="voucher-code">FREESHIP2023</td>
+                    <td>FREE</td>
+                    <td>Free delivery on your next order</td>
+                </tr>
+                <tr>
+                    <td class="voucher-code">WELCOME10</td>
+                    <td>$10 OFF</td>
+                    <td>$10 off your first order</td>
+                </tr>
+                <tr>
+                    <td class="voucher-code">QUANTUM25</td>
+                    <td>25% OFF</td>
+                    <td>25% off your next quantum order</td>
+                </tr>
+                <tr>
+                    <td class="voucher-code">NEOLAUNCH</td>
+                    <td>15% OFF</td>
+                    <td>15% off to celebrate our launch</td>
+                </tr>
+                <tr>
+                    <td class="voucher-code">CYBERFOOD</td>
+                    <td>$15 OFF</td>
+                    <td>$15 off orders over $50</td>
+                </tr>
+                <tr>
+                    <td class="voucher-code">MATRIX2023</td>
+                    <td>30% OFF</td>
+                    <td>30% off selected restaurants</td>
+                </tr>
+                <tr>
+                    <td class="voucher-code">FOODHACK</td>
+                    <td>20% OFF</td>
+                    <td>20% off your next order</td>
+                </tr>
+                <tr>
+                    <td class="voucher-code">DIGITALEAT</td>
+                    <td>FREE</td>
+                    <td>Free delivery on your next 3 orders</td>
+                </tr>
+                <tr>
+                    <td class="voucher-code">NEOYEAR2023</td>
+                    <td>$20 OFF</td>
+                    <td>$20 off orders over $60</td>
+                </tr>
+                <tr>
+                    <td class="voucher-code">FUTUREFOOD</td>
+                    <td>15% OFF</td>
+                    <td>15% off your next order</td>
+                </tr>
+                <tr>
+                    <td class="voucher-code">NEONIGHTS</td>
+                    <td>25% OFF</td>
+                    <td>25% off night deliveries (after 8pm)</td>
+                </tr>
+                <tr>
+                    <td class="voucher-code">CYBERMONDAY</td>
+                    <td>40% OFF</td>
+                    <td>40% off for Cyber Monday</td>
+                </tr>
+                <tr>
+                    <td class="voucher-code">FLASHFOOD</td>
+                    <td>30% OFF</td>
+                    <td>30% off flash sale (today only)</td>
+                </tr>
+                <tr>
+                    <td class="voucher-code">QUANTUMLEAP</td>
+                    <td>$25 OFF</td>
+                    <td>$25 off orders over $75</td>
+                </tr>
+                <tr>
+                    <td class="voucher-code">NEOTASTE</td>
+                    <td>20% OFF</td>
+                    <td>20% off your first order</td>
+                </tr>
+                <tr>
+                    <td class="voucher-code">MATRIXMEAL</td>
+                    <td>FREE ITEM</td>
+                    <td>Free dessert with orders over $40</td>
+                </tr>
+                <tr>
+                    <td class="voucher-code">PIXELFOOD</td>
+                    <td>15% OFF</td>
+                    <td>15% off your next order</td>
+                </tr>
+                <tr>
+                    <td class="voucher-code">VIRTUALFEAST</td>
+                    <td>$12 OFF</td>
+                    <td>$12 off orders over $45</td>
+                </tr>
+                <tr>
+                    <td class="voucher-code">NEOFOODELITE</td>
+                    <td>35% OFF</td>
+                    <td>35% off premium restaurants</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <a href="vouchers.html" class="back-btn">Back to Vouchers</a>
+    </section>
+
+    <script src="scripts/main.js"></script>
+    <script src="scripts/theme-system.js"></script>
+</body>
+</html>

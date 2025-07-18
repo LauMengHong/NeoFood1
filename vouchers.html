@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeoFood - Quantum Vouchers</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/theme.css">
+    <link rel="stylesheet" href="styles/vouchers.css">
+</head>
+<body>
+    <div class="cursor-glow"></div>
+    
+    <nav class="floating-nav">
+        <div class="nav-brand">NeoFood</div>
+        <div class="nav-links">
+            <a href="home.html" class="nav-link">Home</a>
+            <a href="cart.html" class="nav-link">Cart</a>
+            <a href="profile.html" class="nav-link">Profile</a>
+        </div>
+    </nav>
+
+    <section class="vouchers-section">
+        <div class="vouchers-container">
+            <div class="section-header">
+                <h1 class="glitch-text" data-text="Quantum Vouchers">Quantum Vouchers</h1>
+                <p class="section-subtitle">Unlock exclusive discounts with advanced quantum encryption</p>
+            </div>
+            
+            <div class="voucher-tabs">
+                <div class="tab active" data-tab="available">Available</div>
+                <div class="tab" data-tab="redeem">Redeem Code</div>
+                <div class="tab" data-tab="used">Used</div>
+            </div>
+            
+            <div class="tab-content">
+                <div class="tab-panel active" id="available-panel">
+                    <div class="vouchers-grid" id="availableVouchers">
+                        <!-- Available vouchers will be loaded here -->
+                    </div>
+                </div>
+                
+                <div class="tab-panel" id="redeem-panel">
+                    <div class="redeem-container glass">
+                        <h3>Redeem Your Quantum Code</h3>
+                        <div class="quantum-scanner">
+                            <div class="scanner-beam"></div>
+                            <div class="scanner-grid"></div>
+                        </div>
+                        <div class="code-input-container">
+                            <input type="text" id="voucherCode" class="code-input" placeholder="Enter voucher code" maxlength="16">
+                            <div class="code-segments">
+                                <span></span><span></span><span></span><span></span>
+                            </div>
+                        </div>
+                        <button class="redeem-btn" id="redeemBtn">
+                            <span>Verify & Redeem</span>
+                            <div class="button-glow"></div>
+                        </button>
+                        <p class="scan-text">Quantum verification in progress...</p>
+                    </div>
+                </div>
+                
+                <div class="tab-panel" id="used-panel">
+                    <div class="vouchers-grid" id="usedVouchers">
+                        <!-- Used vouchers will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Voucher Applied Modal -->
+    <div class="modal-overlay" id="voucherModal" style="display: none;">
+        <div class="modal-content glass">
+            <div class="success-animation">
+                <div class="checkmark-circle">
+                    <div class="checkmark"></div>
+                </div>
+            </div>
+            <h2>Voucher Activated!</h2>
+            <p id="voucherDetails">20% off your next order</p>
+            <p class="expiry">Valid until <span id="voucherExpiry">Dec 31, 2023</span></p>
+            <button class="close-modal-btn">Continue</button>
+        </div>
+    </div>
+
+    <script src="scripts/main.js"></script>
+    <script src="scripts/theme-system.js"></script>
+    <script src="scripts/voucher-codes.js"></script>
+    <script src="scripts/vouchers.js"></script>
+</body>
+</html>

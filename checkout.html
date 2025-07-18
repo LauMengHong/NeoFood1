@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeoFood - Checkout</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/theme.css">
+    <link rel="stylesheet" href="styles/checkout.css">
+    <link rel="stylesheet" href="styles/checkout-dropdown.css">
+</head>
+<body>
+    <div class="cursor-glow"></div>
+    
+    <nav class="floating-nav">
+        <div class="nav-brand">NeoFood</div>
+        <div class="nav-links">
+            <a href="cart.html" class="nav-link">← Back to Cart</a>
+        </div>
+    </nav>
+
+    <section class="checkout-section">
+        <div class="checkout-container">
+            <h1 class="checkout-title">Checkout</h1>
+            
+            <div class="checkout-content">
+                <div class="checkout-form">
+                    <div class="form-section glass">
+                        <h3>🏠 Delivery Address</h3>
+                        <div class="input-group">
+                            <label>Select Delivery Address</label>
+                            <select id="addressSelect" onchange="selectAddressFromDropdown()">
+                                <option value="-1">Enter a new address</option>
+                                <option value="0" selected>Home - 123 Cyber Street, Neo City</option>
+                                <option value="1">Work - 456 Digital Avenue, Tech District</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <input type="text" id="streetAddress" placeholder="Street Address" required>
+                        </div>
+                        <div class="input-row">
+                            <div class="input-group">
+                                <input type="text" id="cityInput" placeholder="City" required>
+                            </div>
+                            <div class="input-group">
+                                <input type="text" id="zipInput" placeholder="ZIP Code" required>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <textarea id="instructionsInput" placeholder="Delivery Instructions (Optional)"></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="form-section glass">
+                        <h3>⏰ Delivery Time</h3>
+                        <div class="time-selector">
+                            <div class="time-option active" data-time="asap">
+                                <div class="time-label">ASAP</div>
+                                <div class="time-desc">25-35 min</div>
+                            </div>
+                            <div class="time-option" data-time="scheduled">
+                                <div class="time-label">Schedule</div>
+                                <div class="time-desc">Pick time</div>
+                            </div>
+                        </div>
+                        <div class="schedule-picker" id="schedulePicker" style="display: none;">
+                            <input type="datetime-local" id="deliveryTime">
+                        </div>
+                    </div>
+                    
+                    <div class="form-section glass">
+                        <h3>💳 Payment Method</h3>
+                        <div class="payment-methods">
+                            <div class="payment-option active" data-method="card">
+                                <div class="payment-icon">💳</div>
+                                <div class="payment-label">Credit Card</div>
+                            </div>
+                            <div class="payment-option" data-method="digital">
+                                <div class="payment-icon">📱</div>
+                                <div class="payment-label">Digital Wallet</div>
+                            </div>
+                            <div class="payment-option" data-method="cash">
+                                <div class="payment-icon">💵</div>
+                                <div class="payment-label">Cash on Delivery</div>
+                            </div>
+                        </div>
+                        
+                        <div class="payment-details" id="cardDetails">
+                            <div class="input-group">
+                                <input type="text" placeholder="Card Number" maxlength="19">
+                            </div>
+                            <div class="input-row">
+                                <div class="input-group">
+                                    <input type="text" placeholder="MM/YY" maxlength="5">
+                                </div>
+                                <div class="input-group">
+                                    <input type="text" placeholder="CVV" maxlength="3">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="order-summary glass">
+                    <h3>Order Summary</h3>
+                    <div class="summary-items" id="summaryItems">
+                        <!-- Items loaded dynamically -->
+                    </div>
+                    <div class="summary-totals">
+                        <div class="summary-line">
+                            <span>Subtotal</span>
+                            <span id="subtotal">$0.00</span>
+                        </div>
+                        <div class="summary-line">
+                            <span>Delivery Fee</span>
+                            <span id="deliveryFee">$2.99</span>
+                        </div>
+                        <div class="summary-line">
+                            <span>Tax</span>
+                            <span id="tax">$0.00</span>
+                        </div>
+                        <div class="summary-line total">
+                            <span>Total</span>
+                            <span id="total">$0.00</span>
+                        </div>
+                    </div>
+                    <button class="place-order-btn" onclick="placeOrder()">
+                        Place Order
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="scripts/main.js"></script>
+    <script src="scripts/theme-system.js"></script>
+    <script src="scripts/checkout-address.js"></script>
+    <script src="scripts/checkout.js"></script>
+</body>
+</html>

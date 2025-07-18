@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeoFood - Futuristic Food Delivery</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/theme.css">
+</head>
+<body>
+    <div class="cursor-glow"></div>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="neon-grid"></div>
+        <div class="hero-content">
+            <h1 class="glitch-text" data-text="NeoFood">NeoFood</h1>
+            <p class="hero-subtitle">Experience the Future of Food Delivery</p>
+            <button class="cta-button" id="getStarted">
+                <span>Get Started</span>
+                <div class="button-glow"></div>
+            </button>
+        </div>
+        <div class="floating-elements">
+            <div class="float-item">🍕</div>
+            <div class="float-item">🍜</div>
+            <div class="float-item">🥗</div>
+        </div>
+    </section>
+
+    <!-- Navigation -->
+    <nav class="floating-nav">
+        <div class="nav-brand">NeoFood</div>
+        <div class="nav-links">
+            <a href="#" class="nav-link">Home</a>
+            <a href="#" class="nav-link" id="loginBtn">Login</a>
+        </div>
+    </nav>
+
+    <!-- Login Modal -->
+    <div class="modal-overlay" id="loginModal">
+        <div class="modal-content glass">
+            <button class="close-btn">&times;</button>
+            <h2>Welcome Back</h2>
+            <form class="auth-form">
+                <div class="input-group">
+                    <input type="email" placeholder="Email" required>
+                    <span class="input-glow"></span>
+                </div>
+                <div class="input-group">
+                    <input type="password" placeholder="Password" required>
+                    <span class="input-glow"></span>
+                </div>
+                <button type="submit" class="auth-btn">Login</button>
+            </form>
+            <p>Don't have an account? <a href="#" id="switchToRegister">Register</a></p>
+        </div>
+    </div>
+
+    <script src="scripts/main.js"></script>
+    <script src="scripts/theme-system.js"></script>
+    <script src="scripts/login.js"></script>
+</body>
+</html>

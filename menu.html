@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeoFood - Menu</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/menu.css">
+</head>
+<body>
+    <div class="cursor-glow"></div>
+    
+    <!-- Navigation -->
+    <nav class="floating-nav">
+        <div class="nav-brand">NeoFood</div>
+        <div class="nav-links">
+            <a href="home.html" class="nav-link">← Back</a>
+            <a href="cart.html" class="nav-link">Cart <span class="cart-count">0</span></a>
+        </div>
+    </nav>
+
+    <!-- Restaurant Header -->
+    <section class="restaurant-header" id="restaurantHeader">
+        <div class="restaurant-banner">
+            <div class="banner-content">
+                <h1 class="restaurant-name" id="restaurantName">Loading...</h1>
+                <p class="restaurant-details" id="restaurantDetails">Loading...</p>
+                <div class="restaurant-stats" id="restaurantStats">
+                    <span class="rating">⭐ 0.0</span>
+                    <span class="delivery-time">🕒 Loading...</span>
+                    <span class="delivery-fee">🚚 Loading...</span>
+                </div>
+            </div>
+            <div class="restaurant-icon" id="restaurantIcon">🍽️</div>
+        </div>
+    </section>
+
+    <!-- Menu Categories -->
+    <section class="menu-categories">
+        <div class="category-tabs" id="categoryTabs">
+            <!-- Categories will be loaded dynamically -->
+        </div>
+    </section>
+
+    <!-- Menu Items -->
+    <section class="menu-section">
+        <div class="menu-container" id="menuContainer">
+            <!-- Menu items will be loaded dynamically -->
+        </div>
+    </section>
+
+    <!-- Item Detail Modal -->
+    <div class="modal-overlay" id="itemModal">
+        <div class="modal-content glass item-modal">
+            <button class="close-btn">&times;</button>
+            <div class="item-detail" id="itemDetail">
+                <!-- Item details will be loaded dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Cart Summary -->
+    <div class="floating-cart" id="floatingCart" style="display: none;">
+        <div class="cart-summary">
+            <div class="cart-info">
+                <span class="cart-items-count">0 items</span>
+                <span class="cart-total">$0.00</span>
+            </div>
+            <button class="view-cart-btn" onclick="window.location.href='cart.html'">
+                View Cart
+            </button>
+        </div>
+    </div>
+
+    <script src="scripts/main.js"></script>
+    <script src="scripts/menu.js"></script>
+</body>
+</html>

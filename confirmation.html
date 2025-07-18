@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeoFood - Order Confirmed</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/confirmation.css">
+</head>
+<body>
+    <div class="cursor-glow"></div>
+    
+    <nav class="floating-nav">
+        <div class="nav-brand">NeoFood</div>
+        <div class="nav-links">
+            <a href="home.html" class="nav-link">Order More</a>
+            <a href="profile.html" class="nav-link">My Orders</a>
+        </div>
+    </nav>
+
+    <section class="confirmation-section">
+        <div class="confirmation-container">
+            <div class="success-animation">
+                <div class="checkmark">✓</div>
+            </div>
+            
+            <h1 class="confirmation-title">Order Confirmed!</h1>
+            <p class="confirmation-subtitle">Your delicious meal is on its way</p>
+            
+            <div class="order-details glass">
+                <div class="order-header">
+                    <h3>Order Details</h3>
+                    <div class="order-number" id="orderNumber">#NF000000</div>
+                </div>
+                
+                <div class="order-items" id="orderItems">
+                    <!-- Items loaded dynamically -->
+                </div>
+                
+                <div class="order-total">
+                    <span>Total: </span>
+                    <span id="orderTotal">$0.00</span>
+                </div>
+            </div>
+            
+            <div class="delivery-progress glass">
+                <h3>🚚 Delivery Progress</h3>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <div class="progress-steps">
+                    <div class="step active" data-step="1">
+                        <div class="step-icon">📋</div>
+                        <div class="step-label">Order Confirmed</div>
+                    </div>
+                    <div class="step" data-step="2">
+                        <div class="step-icon">👨‍🍳</div>
+                        <div class="step-label">Preparing</div>
+                    </div>
+                    <div class="step" data-step="3">
+                        <div class="step-icon">🚚</div>
+                        <div class="step-label">On the Way</div>
+                    </div>
+                    <div class="step" data-step="4">
+                        <div class="step-icon">🏠</div>
+                        <div class="step-label">Delivered</div>
+                    </div>
+                </div>
+                <div class="estimated-time">
+                    <span>Estimated delivery: </span>
+                    <span id="estimatedTime">25-35 minutes</span>
+                </div>
+            </div>
+            
+            <div class="action-buttons">
+                <button class="track-order-btn" onclick="trackOrder()">
+                    Track Order
+                </button>
+                <button class="continue-shopping-btn" onclick="window.location.href='home.html'">
+                    Continue Shopping
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <script src="scripts/main.js"></script>
+    <script src="scripts/confirmation.js"></script>
+</body>
+</html>

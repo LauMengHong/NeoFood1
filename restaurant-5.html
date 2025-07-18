@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sweet Circuits - NeoFood</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/menu.css">
+</head>
+<body>
+    <div class="cursor-glow"></div>
+    
+    <nav class="floating-nav">
+        <div class="nav-brand">NeoFood</div>
+        <div class="nav-links">
+            <a href="home.html" class="nav-link">← Back</a>
+            <a href="cart.html" class="nav-link">Cart <span class="cart-count">0</span></a>
+        </div>
+    </nav>
+
+    <section class="restaurant-header">
+        <div class="restaurant-banner">
+            <div class="banner-content">
+                <h1 class="restaurant-name">Sweet Circuits</h1>
+                <p class="restaurant-details">Desserts • Premium Quality</p>
+                <div class="restaurant-stats">
+                    <span class="rating">⭐ 4.5</span>
+                    <span class="delivery-time">🕒 30-40 min</span>
+                    <span class="delivery-fee">🚚 $2.49</span>
+                </div>
+            </div>
+            <div class="restaurant-icon">🍰</div>
+        </div>
+    </section>
+
+    <section class="menu-section">
+        <div class="menu-container">
+            <div class="menu-category">
+                <h2 class="category-title">Menu Items</h2>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <div class="item-info">
+                                <h3>Neon Cheesecake</h3>
+                                <p class="item-description">Creamy cheesecake with glowing berry topping</p>
+                            </div>
+                            <div class="item-price">$8.99</div>
+                        </div>
+                        <div class="item-actions">
+                            <div class="item-rating">⭐ 4.7</div>
+                            <button class="add-to-cart-btn" onclick="addItem(501, 'Neon Cheesecake', 8.99)">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <div class="item-info">
+                                <h3>Chocolate Overload</h3>
+                                <p class="item-description">Rich chocolate cake with fudge frosting</p>
+                            </div>
+                            <div class="item-price">$7.99</div>
+                        </div>
+                        <div class="item-actions">
+                            <div class="item-rating">⭐ 4.8</div>
+                            <button class="add-to-cart-btn" onclick="addItem(502, 'Chocolate Overload', 7.99)">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <div class="item-info">
+                                <h3>Cyber Sundae</h3>
+                                <p class="item-description">Vanilla ice cream with futuristic toppings</p>
+                            </div>
+                            <div class="item-price">$6.99</div>
+                        </div>
+                        <div class="item-actions">
+                            <div class="item-rating">⭐ 4.5</div>
+                            <button class="add-to-cart-btn" onclick="addItem(503, 'Cyber Sundae', 6.99)">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="scripts/main.js"></script>
+    <script src="scripts/fix-order-history.js"></script>
+    
+    <script>
+        function addItem(id, name, price) {
+            let cart = JSON.parse(localStorage.getItem('neoFoodCart') || '[]');
+            
+            cart.push({
+                id: id,
+                name: name,
+                price: price,
+                quantity: 1,
+                restaurantName: "Sweet Circuits"
+            });
+            
+            localStorage.setItem('neoFoodCart', JSON.stringify(cart));
+            
+            const cartCount = document.querySelector('.cart-count');
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = totalItems;
+            cartCount.style.display = 'inline';
+            
+            alert(name + ' added to cart!');
+        }
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            const cart = JSON.parse(localStorage.getItem('neoFoodCart') || '[]');
+            const cartCount = document.querySelector('.cart-count');
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = totalItems;
+            
+            if (totalItems > 0) {
+                cartCount.style.display = 'inline';
+            }
+        });
+    </script>
+</body>
+</html>

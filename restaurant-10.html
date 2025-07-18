@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taco Cyber - NeoFood</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/menu.css">
+</head>
+<body>
+    <div class="cursor-glow"></div>
+    
+    <nav class="floating-nav">
+        <div class="nav-brand">NeoFood</div>
+        <div class="nav-links">
+            <a href="home.html" class="nav-link">← Back</a>
+            <a href="cart.html" class="nav-link">Cart <span class="cart-count">0</span></a>
+        </div>
+    </nav>
+
+    <section class="restaurant-header">
+        <div class="restaurant-banner">
+            <div class="banner-content">
+                <h1 class="restaurant-name">Taco Cyber</h1>
+                <p class="restaurant-details">Mexican • Premium Quality</p>
+                <div class="restaurant-stats">
+                    <span class="rating">⭐ 4.5</span>
+                    <span class="delivery-time">🕒 18-28 min</span>
+                    <span class="delivery-fee">🚚 $2.29</span>
+                </div>
+            </div>
+            <div class="restaurant-icon">🌮</div>
+        </div>
+    </section>
+
+    <section class="menu-section">
+        <div class="menu-container">
+            <div class="menu-category">
+                <h2 class="category-title">Menu Items</h2>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <div class="item-info">
+                                <h3>Beef Tacos</h3>
+                                <p class="item-description">Seasoned ground beef with lettuce and cheese</p>
+                            </div>
+                            <div class="item-price">$9.99</div>
+                        </div>
+                        <div class="item-actions">
+                            <div class="item-rating">⭐ 4.6</div>
+                            <button class="add-to-cart-btn" onclick="addItem(1001, 'Beef Tacos', 9.99)">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <div class="item-info">
+                                <h3>Chicken Quesadilla</h3>
+                                <p class="item-description">Grilled chicken with melted cheese in tortilla</p>
+                            </div>
+                            <div class="item-price">$11.99</div>
+                        </div>
+                        <div class="item-actions">
+                            <div class="item-rating">⭐ 4.4</div>
+                            <button class="add-to-cart-btn" onclick="addItem(1002, 'Chicken Quesadilla', 11.99)">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <div class="item-info">
+                                <h3>Burrito Bowl</h3>
+                                <p class="item-description">Rice, beans, meat, and fresh toppings</p>
+                            </div>
+                            <div class="item-price">$12.99</div>
+                        </div>
+                        <div class="item-actions">
+                            <div class="item-rating">⭐ 4.7</div>
+                            <button class="add-to-cart-btn" onclick="addItem(1003, 'Burrito Bowl', 12.99)">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="scripts/main.js"></script>
+    <script src="scripts/fix-order-history.js"></script>
+    
+    <script>
+        function addItem(id, name, price) {
+            let cart = JSON.parse(localStorage.getItem('neoFoodCart') || '[]');
+            
+            cart.push({
+                id: id,
+                name: name,
+                price: price,
+                quantity: 1,
+                restaurantName: "Taco Cyber"
+            });
+            
+            localStorage.setItem('neoFoodCart', JSON.stringify(cart));
+            
+            const cartCount = document.querySelector('.cart-count');
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = totalItems;
+            cartCount.style.display = 'inline';
+            
+            alert(name + ' added to cart!');
+        }
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            const cart = JSON.parse(localStorage.getItem('neoFoodCart') || '[]');
+            const cartCount = document.querySelector('.cart-count');
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = totalItems;
+            
+            if (totalItems > 0) {
+                cartCount.style.display = 'inline';
+            }
+        });
+    </script>
+</body>
+</html>

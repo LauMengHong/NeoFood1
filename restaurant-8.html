@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noodle Matrix - NeoFood</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/menu.css">
+</head>
+<body>
+    <div class="cursor-glow"></div>
+    
+    <nav class="floating-nav">
+        <div class="nav-brand">NeoFood</div>
+        <div class="nav-links">
+            <a href="home.html" class="nav-link">← Back</a>
+            <a href="cart.html" class="nav-link">Cart <span class="cart-count">0</span></a>
+        </div>
+    </nav>
+
+    <section class="restaurant-header">
+        <div class="restaurant-banner">
+            <div class="banner-content">
+                <h1 class="restaurant-name">Noodle Matrix</h1>
+                <p class="restaurant-details">Thai • Premium Quality</p>
+                <div class="restaurant-stats">
+                    <span class="rating">⭐ 4.6</span>
+                    <span class="delivery-time">🕒 25-35 min</span>
+                    <span class="delivery-fee">🚚 $2.99</span>
+                </div>
+            </div>
+            <div class="restaurant-icon">🍜</div>
+        </div>
+    </section>
+
+    <section class="menu-section">
+        <div class="menu-container">
+            <div class="menu-category">
+                <h2 class="category-title">Menu Items</h2>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <div class="item-info">
+                                <h3>Pad Thai</h3>
+                                <p class="item-description">Classic Thai noodles with shrimp and peanuts</p>
+                            </div>
+                            <div class="item-price">$12.99</div>
+                        </div>
+                        <div class="item-actions">
+                            <div class="item-rating">⭐ 4.8</div>
+                            <button class="add-to-cart-btn" onclick="addItem(801, 'Pad Thai', 12.99)">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <div class="item-info">
+                                <h3>Green Curry</h3>
+                                <p class="item-description">Spicy coconut curry with chicken and vegetables</p>
+                            </div>
+                            <div class="item-price">$14.99</div>
+                        </div>
+                        <div class="item-actions">
+                            <div class="item-rating">⭐ 4.7</div>
+                            <button class="add-to-cart-btn" onclick="addItem(802, 'Green Curry', 14.99)">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <div class="item-info">
+                                <h3>Tom Yum Soup</h3>
+                                <p class="item-description">Hot and sour soup with shrimp and mushrooms</p>
+                            </div>
+                            <div class="item-price">$11.99</div>
+                        </div>
+                        <div class="item-actions">
+                            <div class="item-rating">⭐ 4.5</div>
+                            <button class="add-to-cart-btn" onclick="addItem(803, 'Tom Yum Soup', 11.99)">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="scripts/main.js"></script>
+    <script src="scripts/fix-order-history.js"></script>
+    
+    <script>
+        function addItem(id, name, price) {
+            let cart = JSON.parse(localStorage.getItem('neoFoodCart') || '[]');
+            
+            cart.push({
+                id: id,
+                name: name,
+                price: price,
+                quantity: 1,
+                restaurantName: "Noodle Matrix"
+            });
+            
+            localStorage.setItem('neoFoodCart', JSON.stringify(cart));
+            
+            const cartCount = document.querySelector('.cart-count');
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = totalItems;
+            cartCount.style.display = 'inline';
+            
+            alert(name + ' added to cart!');
+        }
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            const cart = JSON.parse(localStorage.getItem('neoFoodCart') || '[]');
+            const cartCount = document.querySelector('.cart-count');
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = totalItems;
+            
+            if (totalItems > 0) {
+                cartCount.style.display = 'inline';
+            }
+        });
+    </script>
+</body>
+</html>
